@@ -82,7 +82,7 @@ class ProgramEditorViewModel(private val c: AppContainer, private val programId:
         }
     }
 
-    fun setName(value: String) {
+    fun updateName(value: String) {
         name = value.take(80)
         dirty = true
     }

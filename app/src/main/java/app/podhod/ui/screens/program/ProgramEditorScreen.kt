@@ -140,7 +140,7 @@ fun ProgramEditorScreen(programId: Long?, onClose: () -> Unit) {
             item(key = "name") {
                 OutlinedTextField(
                     value = vm.name,
-                    onValueChange = { vm.setName(it) },
+                    onValueChange = { vm.updateName(it) },
                     label = { Text("Название программы") },
                     placeholder = { Text("Например, «Тренировка А»") },
                     singleLine = true,
