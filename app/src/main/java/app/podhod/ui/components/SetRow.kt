@@ -114,8 +114,8 @@ fun SetRow(
     modifier: Modifier = Modifier,
     showCheck: Boolean = true,
 ) {
-    val shape = RoundedCornerShape(12.dp)
-    val bg = if (set.isCompleted) MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.55f) else Color.Transparent
+    val shape = RoundedCornerShape(16.dp)
+    val bg = if (set.isCompleted) MaterialTheme.colorScheme.primary.copy(alpha = 0.14f) else Color.Transparent
     Row(
         modifier = modifier
             .fillMaxWidth()

@@ -163,7 +163,8 @@ fun WorkoutsScreen(
                 item(key = "start") {
                     Button(
                         onClick = { if (programList.isEmpty()) start(null) else pickProgram = true },
-                        modifier = Modifier.fillMaxWidth().height(60.dp),
+                        modifier = Modifier.fillMaxWidth().height(68.dp),
+                        shape = MaterialTheme.shapes.extraLarge,
                     ) {
                         Icon(Icons.Filled.PlayArrow, contentDescription = null)
                         Spacer(Modifier.size(8.dp))
@@ -176,7 +177,9 @@ fun WorkoutsScreen(
                     item(key = "last-program") {
                         Card(
                             modifier = Modifier.fillMaxWidth(),
-                            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                            shape = MaterialTheme.shapes.large,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
                         ) {
                             Row(
                                 Modifier.fillMaxWidth().padding(16.dp),
@@ -241,7 +244,9 @@ fun WorkoutsScreen(
                 item(key = "highlights") {
                     Card(
                         modifier = Modifier.fillMaxWidth(),
-                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                        shape = MaterialTheme.shapes.large,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
                     ) {
                         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
                             Text("Прогресс за 30 дней", style = MaterialTheme.typography.titleSmall)
@@ -437,7 +442,9 @@ private fun ActiveSessionCard(
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.large,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)),
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Text(
@@ -469,7 +476,9 @@ private fun LastWorkoutCard(row: SessionSummaryRow, unit: WeightUnit, zone: Zone
     Card(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        shape = MaterialTheme.shapes.large,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
             Text(
@@ -516,7 +525,9 @@ private fun ProgramCard(
     Card(
         onClick = onEdit,
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        shape = MaterialTheme.shapes.large,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
         Row(
             Modifier.fillMaxWidth().padding(start = 16.dp, top = 12.dp, bottom = 12.dp, end = 4.dp),

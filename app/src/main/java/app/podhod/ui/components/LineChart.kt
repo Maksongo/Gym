@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
@@ -65,7 +66,7 @@ fun LineChart(
 ) {
     val gridColor = MaterialTheme.colorScheme.outlineVariant
     val textColor = MaterialTheme.colorScheme.onSurfaceVariant
-    val bg = MaterialTheme.colorScheme.surface
+    val bg = MaterialTheme.colorScheme.surfaceContainer
     val measurer = rememberTextMeasurer()
     val labelStyle = MaterialTheme.typography.labelSmall.copy(color = textColor)
 
@@ -133,7 +134,20 @@ fun LineChart(
                 val o = Offset(xOf(p), yOf(p.y))
                 if (i == 0) path.moveTo(o.x, o.y) else path.lineTo(o.x, o.y)
             }
-            drawPath(path, lineColor, style = Stroke(width = 3.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round))
+            val fill = Path()
+            points.forEachIndexed { i, p ->
+                val o = Offset(xOf(p), yOf(p.y))
+                if (i == 0) {
+                    fill.moveTo(o.x, bottom)
+                    fill.lineTo(o.x, o.y)
+                } else {
+                    fill.lineTo(o.x, o.y)
+                }
+            }
+            fill.lineTo(xOf(points.last()), bottom)
+            fill.close()
+            drawPath(fill, Brush.verticalGradient(listOf(lineColor.copy(alpha = 0.32f), Color.Transparent), startY = top, endY = bottom))
+            drawPath(path, lineColor, style = Stroke(width = 3.5.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round))
         }
         // Точки.
         points.forEachIndexed { i, p ->

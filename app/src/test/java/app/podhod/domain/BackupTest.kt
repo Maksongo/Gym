@@ -228,7 +228,7 @@ class BackupCodecTest {
             .replace("\"exportedAt\"", "\"futureField\": {\"x\": [1,2]}, \"exportedAt\"")
             .replace("\"theme\": \"DARK\"", "\"theme\": \"NEON\"")
         val data = BackupCodec.decode(text)
-        assertEquals(ThemeMode.SYSTEM, data.settings!!.theme)
+        assertEquals(ThemeMode.DARK, data.settings!!.theme)
     }
 }
 

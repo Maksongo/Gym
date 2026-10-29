@@ -33,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -151,13 +152,21 @@ private fun MainTabs(nav: NavHostController) {
     Scaffold(
         bottomBar = {
             if (!imeOpen) {
-                NavigationBar {
+                NavigationBar(
+                    containerColor = androidx.compose.material3.MaterialTheme.colorScheme.surfaceContainerLow,
+                    tonalElevation = 0.dp,
+                ) {
                     Tab.values().forEachIndexed { index, tab ->
                         NavigationBarItem(
                             selected = tabIndex == index,
                             onClick = { tabIndex = index },
                             icon = { Icon(tab.icon, contentDescription = null) },
-                            label = { Text(tab.title) },
+                            label = { Text(tab.title, style = androidx.compose.material3.MaterialTheme.typography.labelMedium) },
+                            colors = androidx.compose.material3.NavigationBarItemDefaults.colors(
+                                indicatorColor = androidx.compose.material3.MaterialTheme.colorScheme.primary,
+                                selectedIconColor = androidx.compose.material3.MaterialTheme.colorScheme.onPrimary,
+                                selectedTextColor = androidx.compose.material3.MaterialTheme.colorScheme.primary,
+                            ),
                         )
                     }
                 }

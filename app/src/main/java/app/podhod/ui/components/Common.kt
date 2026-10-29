@@ -153,7 +153,7 @@ fun SectionHeader(text: String, modifier: Modifier = Modifier, trailing: @Compos
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        Text(text, style = MaterialTheme.typography.titleMedium)
+        Text(text.uppercase(), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
         if (trailing != null) trailing()
     }
 }
@@ -162,11 +162,13 @@ fun SectionHeader(text: String, modifier: Modifier = Modifier, trailing: @Compos
 fun StatTile(label: String, value: String, modifier: Modifier = Modifier, caption: String? = null) {
     Card(
         modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        shape = MaterialTheme.shapes.large,
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer),
+        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
     ) {
-        Column(Modifier.padding(14.dp), verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            Text(label, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text(value, style = MaterialTheme.typography.titleLarge)
+        Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            Text(label.uppercase(), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(value, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onSurface)
             if (caption != null) {
                 Text(caption, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
@@ -224,7 +226,7 @@ fun TabScaffold(
         modifier = modifier,
         topBar = {
             androidx.compose.material3.TopAppBar(
-                title = { Text(title) },
+                title = { Text(title, style = MaterialTheme.typography.titleLarge) },
                 actions = actions,
                 colors = androidx.compose.material3.TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,

@@ -26,7 +26,7 @@ enum class WeightUnit(val label: String, val kgPerUnit: Double) {
 }
 
 data class AppSettings(
-    val theme: ThemeMode = ThemeMode.SYSTEM,
+    val theme: ThemeMode = ThemeMode.DARK,
     val unit: WeightUnit = WeightUnit.KG,
     val restSeconds: Int = 90,
     val restEnabled: Boolean = true,
