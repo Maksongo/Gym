@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Гриф -->
+    <path
+        android:fillColor="#FFE9F5EC"
+        android:pathData="M30,51h48v6h-48z" />
+    <!-- Левые блины -->
+    <path
+        android:fillColor="#FF5BD68A"
+        android:pathData="M30,38h7v32h-7z" />
+    <path
+        android:fillColor="#FFE9F5EC"
+        android:pathData="M22,44h7v20h-7z" />
+    <!-- Правые блины -->
+    <path
+        android:fillColor="#FF5BD68A"
+        android:pathData="M71,38h7v32h-7z" />
+    <path
+        android:fillColor="#FFE9F5EC"
+        android:pathData="M79,44h7v20h-7z" />
+</vector>
